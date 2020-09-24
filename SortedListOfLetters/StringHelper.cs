@@ -20,6 +20,17 @@ namespace SortedListOfLetters
             ///manipulate tempStrInput
             ///
 
+            //Could have used Regex but not sure if it is allowed as it states we should not use built in libraries
+
+            var stringBuilder = new StringBuilder();
+
+            foreach(var c in tempStrInput)
+            {
+                if (!(Char.IsNumber(c)))
+                    stringBuilder.Append(c);                    
+            }
+
+            tempStrInput = stringBuilder.ToString();
             _inputStr = tempStrInput;
             return this;
         }
