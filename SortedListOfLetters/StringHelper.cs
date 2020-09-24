@@ -75,6 +75,27 @@ namespace SortedListOfLetters
 
         public StringHelper SortString()
         {
+            char tempChar;
+
+            char[] charArr = _inputStr.ToCharArray();
+
+            for (int i = 0; i < charArr.Length; i++)
+            {
+                for (int j = 0; j < charArr.Length; j++)
+                {
+                    if (charArr[j] > charArr[i])
+                    {
+                        tempChar = charArr[i];
+                        charArr[i] = charArr[j];
+                        charArr[j] = tempChar;
+                    }
+
+                }
+
+            }
+
+            _inputStr = new string(charArr);
+
             return this;
         }
         

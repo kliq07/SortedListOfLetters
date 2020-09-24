@@ -20,8 +20,8 @@ namespace SortedListOfLetters
             _strHelper = new StringHelper(stringInputed)
                 .IsNullOrEmptyString()
                 .ToLowerCaseString()
-                .RemoveNumbers()
                 .RemoveSpacesAndSpecialChars()
+                .RemoveNumbers()
                 .SortString();
                 
 

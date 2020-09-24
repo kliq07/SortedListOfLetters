@@ -79,8 +79,15 @@ namespace SortedLettersUnitTest
         [Test]
         public void CheckIfStringIsSorted()
         {
-            string expected = "abc";
-            string output = "abc";
+            //Act
+            string inputString = "johnngangamwangi";
+            string expected = "aaaggghijmnnnnow";
+
+            //Arrange
+
+            string output = new StringHelper(inputString).SortString().ToString();
+
+            //Assert
             Assert.AreEqual(expected, output);
         }
 
