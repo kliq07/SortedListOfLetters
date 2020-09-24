@@ -89,9 +89,7 @@ namespace SortedListOfLetters
                         charArr[i] = charArr[j];
                         charArr[j] = tempChar;
                     }
-
                 }
-
             }
 
             _inputStr = new string(charArr);

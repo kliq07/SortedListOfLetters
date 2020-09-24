@@ -27,7 +27,8 @@ namespace SortedListOfLetters
 
             var resultString = _strHelper.ToString();
 
-            Console.WriteLine(resultString);
+            Console.Write(resultString);
+            Console.ReadLine();
         }
     }    
 }
