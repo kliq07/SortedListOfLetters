@@ -17,11 +17,13 @@ namespace SortedListOfLetters
             Console.WriteLine("Enter your string: ");
             var stringInputed = Console.ReadLine();
 
-            _strHelper = new StringHelper(stringInputed).RemoveNumbers()
-                .RemoveSpaces()
-                .RemoveSpecialChars()
-                .SortString()
-                .ToLowerCaseString();
+            _strHelper = new StringHelper(stringInputed)
+                .IsNullOrEmptyString()
+                .ToLowerCaseString()
+                .RemoveNumbers()
+                .RemoveSpacesAndSpecialChars()
+                .SortString();
+                
 
             var resultString = _strHelper.ToString();
 

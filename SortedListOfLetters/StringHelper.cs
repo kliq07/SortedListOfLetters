@@ -13,40 +13,63 @@ namespace SortedListOfLetters
             _inputStr = inputStr;
         }
 
-        public StringHelper RemoveNumbers()
+        public StringHelper IsNullOrEmptyString()
         {
-            var tempStrInput = _inputStr;
-
-            ///manipulate tempStrInput
-            ///
-
-            //Could have used Regex but not sure if it is allowed as it states we should not use built in libraries
-
-            var stringBuilder = new StringBuilder();
-
-            foreach(var c in tempStrInput)
-            {
-                if (!(Char.IsNumber(c)))
-                    stringBuilder.Append(c);                    
-            }
-
-            tempStrInput = stringBuilder.ToString();
-            _inputStr = tempStrInput;
-            return this;
-        }
-
-        public StringHelper RemoveSpaces()
-        {
-            return this;
-        }
-
-        public StringHelper RemoveSpecialChars()
-        {
-            return this;
+            bool isEmptyString = String.IsNullOrEmpty(_inputStr);
+            
+            if(!(isEmptyString))
+                return this;
+            return null;
         }
 
         public StringHelper ToLowerCaseString()
         {
+            _inputStr= _inputStr.ToLower();
+            return this;
+        }
+
+        public StringHelper RemoveSpacesAndSpecialChars()
+        {
+            var tempStrInput = _inputStr;
+
+            var charArr = new char[_inputStr.Length];
+
+            int count = 0;
+
+            foreach (var c in _inputStr)
+            {
+                if ((c >= '0' && c <= '9')
+                    || (c >= 'A' && c <= 'Z')
+                    || (c >= 'a' && c <= 'z'))
+                {
+                    charArr[count] = c;
+                    count++;
+                }
+            }
+
+            _inputStr = new string(charArr, 0, count);
+
+            return this;
+        }
+
+        public StringHelper RemoveNumbers()
+        {
+            var tempStrInput = _inputStr;
+            var charArr = new char[_inputStr.Length];
+            int count = 0;
+
+            //Could have used Regex but not sure if it is allowed as it states we should not use built in libraries
+
+            foreach(var c in tempStrInput)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    charArr[count] = c;
+                    count++;
+                }
+            }
+
+            _inputStr = new string(charArr, 0, count);
             return this;
         }
 
